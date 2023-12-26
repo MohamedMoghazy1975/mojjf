@@ -1,8 +1,7 @@
-import os
 
 from sqlalchemy import create_engine, text
 
-db_connection_string = os.environ['DB_CONNECTION_STRING'] 
+db_connection_string = "mysql+pymysql://jvmuy334qj06o8yrabc4:pscale_pw_wBt8lJhqdLOyXytoDHPTDQr3sjnL2EqAvdiN7zaLKIU@aws.connect.psdb.cloud/jfdb?charset=utf8mb4" 
 
 engine = create_engine(db_connection_string,
                        connect_args={
