@@ -1,27 +1,22 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, render_template, jsonify
+
+
+from database import load_courts
 
 app = Flask(__name__)
 
-JOBS = [
-  {
-  'id': 1,
-  'name': 'amin',
-  'password': '123'
-  },
-{
-'id': 2,
-'name': 'koko',
-'password': '123'
-  }
-]
+
 @app.route("/")
 def hello_world():
-  return  render_template ('home.html', jobs=JOBS)
-
+    tbcourts = load_courts()
+    return render_template('home.html', tbcourts=tbcourts)
 
 @app.route("/api/mydataapi")
 def datalist():
-  return jsonify(JOBS )
+    tbcourts = load_courts()
+    return jsonify(tbcourts)
+
+
   
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=5000, debug=True)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang ="ar" dir ="rtl" >
   <head>
    
     <meta charset="utf-8">
@@ -18,24 +18,25 @@
     {% include 'nav.html' %}
     
     <div class="container">
-      <h1 class="text-center mt-2 mb-4">
-     
-      </h1>
+      
       <div class="row" style="margin-bottom:32px">
         <div class="col-md-6">
-      <p class="lead"><b>
+      <p class="lead">
         تفرض الدولة دفع رسوم قضائية على الدعاوى التى يتم رفعها أمام المحاكم، ويقصد بالرسوم القضائية هى المبالغ التى تحصلها الدولة عن طريق قلم الكتاب فى المحاكم من أطراف الدعوى مقابل الاستفادة من خدمات مرفق القضاء سواء تمثلت فى الفصل فى المنازعات أو طلب اتخاذ إجراء يتعلق بحماية حق لطالبه.  ويخضع تقدير الرسوم التى تفرض على الدعاوى لأحكام قوانين الرسوم القضائية والذى يختلف فى أحكامه عن قواعد تقدير الدعاوى فى قانون المرافعات.
-      </b></p>
+      </p>
         </div>
         <div class="d-none d-md-block col-md-6">
         <img src="/static/555.svg" style="height:220px;border-radius:4px;">
         </div>
-          {% for eachcourt in tbcourts %}
+      </div>
+      
+      <div>
+        {% for eachcourt in tbcourts %}
           {% include 'courts.html' %}
         {% endfor %}
       </div>
       
-      <a class="btn btn-primary btn-lg" href="mailto:mohamedsayed@jp.gov.eg?subject=Question%20about%20tbcourts%20Opernings&body=My%20name%3A%20%3Cyour%20name%20here%3E%0D%0A%0D%0AMy%20questions%3A%20%3Center%20question%20here%3E%0D%0A">تواصل معنا ؟</a>
+      <a class="btn btn-primary btn-lg" href="mailto:mohamedsayed@jp.gov.eg?subject=Question%20about%20eachcourt%20Opernings&body=My%20name%3A%20%3Cyour%20name%20here%3E%0D%0A%0D%0AMy%20questions%3A%20%3Center%20question%20here%3E%0D%0A">تواصل معنا ؟</a>
       
     </div>
     {% include 'footer.html' %}

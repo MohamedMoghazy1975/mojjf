@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang=ar dir="rtl">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 50px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column" style="background-color:#FFFFFF;">
+    
+    <p><b>{{eachcourt['CourtName']}}</b></p>
+  </div>
+  <div class="column" style="background-color:#FFFFFF;">
+    
+    <p>
+    <a href="mailto:mohamedsayed@jp.gov.eg?subject=Application%20for%20{{eachcourt['CourtID']}}&body=My%20name%3A%20%3Cyour%20name%20here%3E%0D%0A%0D%0AMy%20Resume%20link%3A%20%3Cresume%20link%3E%0D%0A%0D%0AMy%20LinkedIn%20link%3A%20%3Clinkedin%20in%3E%0D%0A%0D%0A" type="button" class="btn btn-outline-primary float-right align-middle" >حاسبة الرسوم</a>
+  </p>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
