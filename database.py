@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine, text
 import os
+
+from sqlalchemy import create_engine, text
 
 db_connection_string = os.environ['DATABASE_CONNECTION_STRING']
 
@@ -17,3 +18,17 @@ def load_courts():
       for row in result.all():
           tbcourts.append(row._asdict())
       return tbcourts
+
+def load_court_from_db(id):
+    with engine.connect() as conn:
+     result = conn.execute(
+      text("SELECT * FROM Courts WHERE CourtID = :val"),
+      {"val": id}
+    )
+    rows = result.mappings().all()
+    if len(rows) == 0:
+      return None
+    else:
+      return dict(rows[0])
+
+      
