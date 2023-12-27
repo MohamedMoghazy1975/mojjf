@@ -1,13 +1,14 @@
 from sqlalchemy import create_engine, text
+import os
 
-db_connection_string = "mysql+pymysql://dnmb9e6yflhuoh7s3e5f:pscale_pw_QhjXlL83Gyg886MofW0G9Mwf8v3jjXcpa2gqxTTGP72@aws.connect.psdb.cloud/jfdb?charset=utf8mb4" 
+db_connection_string = os.environ['DATABASE_CONNECTION_STRING']
 
 engine = create_engine(db_connection_string,
                        connect_args={
                          "ssl": {
-                         "ssl_ca": "/etc/ssl/cert.pem",
+                         "ssl_ca": "/etc/ssl/cert.pem"
                                  }
-                       })
+                       }, pool_pre_ping=True)
 
 def load_courts():
   with engine.connect() as conn:
