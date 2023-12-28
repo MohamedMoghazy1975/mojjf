@@ -1,45 +1,23 @@
-<!DOCTYPE html>
-<html lang=ar dir="rtl">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
 
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 50px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</style>
-</head>
-<body>
-
-<div class="row">
-  <div class="column" style="background-color:#FFFFFF;">
-    
-    <p><b>{{eachcourt['CourtName']}}</b></p>
-  </div>
-  <div class="column" style="background-color:#FFFFFF;">
-    
-  <p>
-    <a href="/court/{{eachcourt['CourtID']}}" type="button" class="btn btn-outline-primary float-right align-middle" >حاسبة الرسوم</a>
-  </p>
-  </div>
-</div>
-
-</body>
-</html>
+   <table class="table table-striped">
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><a class="btn btn-warning" href="/court/{{eachcourt['CourtID']}}">حاسبة الرسوم</a></td>
+      <td><strong><strong>{{eachcourt['CourtName']}}</strong></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+       
+     </tr>
+   </table>
 
 
 
+
+ 
