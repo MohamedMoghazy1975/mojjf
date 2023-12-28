@@ -18,8 +18,10 @@ def datalist():
 @app.route("/court/<id>")
 def show_court(id):
    court=load_court_from_db(id)
-   return jsonify(court)
-  
-  
+   if not court:
+        return  "Not Found" , 404
+   else:   
+     return render_template('court.html', court=court)
+ 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=8000, debug=True)
