@@ -22,12 +22,20 @@ def load_courts():
 
 def load_court_from_db(id): # /* id is the imput court id */
  with engine.connect() as conn:
-   result = conn.execute(text("SELECT * FROM Courts WHERE CourtID = :val"), {"val": id}
+   result = conn.execute(text("SELECT * FROM CourtType WHERE CourtID = :val"), {"val": id}
     )
    court = []
    for row in result.all():
          court.append(row._asdict())
    return court
 
+def load_gdwl(id): # /* id is the imput court id */
+ with engine.connect() as conn:
+   result = conn.execute(text("SELECT * FROM Gdwl WHERE CourtTypeID = :val"), {"val": id}
+    )
+   gdwl = []
+   for row in result.all():
+         gdwl.append(row._asdict())
+   return gdwl
       
       

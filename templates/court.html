@@ -1,12 +1,30 @@
-<html>
+  <!DOCTYPE html >
+  <html dir="rtl" lang="ar">
+     <head>
+{%include 'bootstrap.html'%}
+     </head>
+   
+<body class="container">
+  <div> 
+    <img src="/static/MOJPIC.png" style="height:200px;">
+  </div>
+  <div><h1><strong>نوع المحكمة</strong></h1></div>
+  {% for eachcourt in court %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-right"><h4><strong>{{eachcourt.CourtTypelName}}</strong></h4></th>
+        <th><a class="btn btn-warning" href="/gdwal/{{eachcourt['CourtTypeID']}}">حدد جدول قيد المحكمة</a></th>
+       </tr>
+    </thead>
+    <tbody>
+      <tr>
+     <td></td>
+     <td ></td>
+       </tr>
+    </tbody>
+  </table>
+ {% endfor %}   
 
-  <body>
- 
-    <h1>أنواع المحاكم</h1>
-          <h1>{{onecourt.CourtID}}</h1>
-          <h1>{{onecourt['CourtName']}}</h1>
-          
-
-    
-  </body>
+</body>
 </html>

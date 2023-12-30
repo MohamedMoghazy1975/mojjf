@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html dir="rtl" lang="ar">
+     <head>
+{% include 'bootstrap.html' %}
+     </head>
+
+  <body class="container">
+  <div> 
+    <img src="/static/MOJPIC.png" style="height:200px;">
+  </div
+  <div><h1><strong>الجدول</strong></h1></div>
+    {% for eachgdwl in gdwl %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+         <th class="text-right"><h4><strong>{{eachgdwl.GdwlName}}</strong></h4></td></th>
+         <th><a class="btn btn-warning" href="/gdwl/{{eachgdwl['GdwlID']}}">حدد الدعوى الرئيسية</a></th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr>
+       <td></td>
+       <td ></td>
+         </tr>
+      </tbody>
+    </table>
+    {% endfor %}   
+</body>
+</html>
