@@ -12,23 +12,22 @@ engine = create_engine(db_connection_string,
                        }, pool_pre_ping=True)
 
 def load_courts():
-  with engine.connect() as conn:
+   with engine.connect() as conn:
       result = conn.execute(text("select * from jfdb.Courts"))
       tbcourts = []
-      for row in result.all():
+   for row in result.all():
           tbcourts.append(row._asdict())
-      return tbcourts
+   return tbcourts
 
-def load_court_from_db(id):
-    with engine.connect() as conn:
-     result = conn.execute(
-      text("SELECT * FROM Courts WHERE CourtID = :val"),
-      {"val": id}
+
+def load_court_from_db(id): # /* id is the imput court id */
+ with engine.connect() as conn:
+   result = conn.execute(text("SELECT * FROM Courts WHERE CourtID = :val"), {"val": id}
     )
-    rows = result.mappings().all()
-    if len(rows) == 0:
-      return None
-    else:
-      return dict(rows[0])
+   court = []
+   for row in result.all():
+         court.append(row._asdict())
+   return court
 
+      
       
