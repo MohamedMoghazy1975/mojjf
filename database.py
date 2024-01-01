@@ -39,3 +39,16 @@ def load_gdwl(id): # /* id is the imput court id */
    return gdwl
       
       
+def load_basiccase(id): # /* id is the imput court id */
+    s = text (
+    "SELECT BasicCaseType.* FROM JoinGdwlWBasicCaseType "
+    "JOIN BasicCaseType ON JoinGdwlWBasicCaseType.BasicCaseTypeID = " 
+    "BasicCaseType.BasicCaseTypeID " 
+    "WHERE JoinGdwlWBasicCaseType.GdwlID = :val")
+    with engine.connect() as conn:
+        result = conn.execute(s, {"val": id})
+    basiccase = []
+    for row in result.all():
+             basiccase.append(row._asdict())
+    return basiccase
+

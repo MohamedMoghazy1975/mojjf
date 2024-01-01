@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template
 
-from database import load_court_from_db, load_courts, load_gdwl
+from database import load_basiccase, load_court_from_db, load_courts, load_gdwl
 
 app = Flask(__name__)
 
@@ -35,7 +35,20 @@ def specifiy_gdwl(id):
    gdwl = load_gdwl(id)
    return render_template ("gdwal.html", gdwl=gdwl)
 
+@app.route("/basiccasej/<id>") 
+def show_basiccases(id):
+   basiccase = load_basiccase(id)
+   return jsonify(basiccase)
 
+@app.route("/basiccasetype/<id>") 
+def specifiy_basiccase(id):
+   basiccase = load_basiccase(id)
+   return render_template ("basiccasetype.html", basiccase=basiccase)
+
+@app.route('/my-link/')
+def my_link():
+   return render_template ("request.html")
+    
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
  

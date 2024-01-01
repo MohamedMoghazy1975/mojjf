@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+<html dir="rtl" lang="ar">
+     <head>
+{% include 'bootstrap.html' %}
+     </head>
+  <body class="container">
+    <div> 
+      <img src="/static/MOJPIC.png" style="height:200px;">
+    </div
+    <div><h1><strong>الطلبات</strong></h1></div>
+    
+    <form >
+        <div>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="Email" required placeholder="nan@example.com">
+
+        </div>
+        <div>
+            <label for="phone">Phone</label><br>
+            <input type="tel" id="phone" name="phone" required placeholder="+910034000402">
+        </div>
+        <div>
+            <label for="Date">Date Of Birth</label><br>
+            <input type="date" name="date" id="date" required placeholder="dd/mm/yyyy">
+        </div>
+        <div>
+            <label for="position">Position Applied for</label><br>
+            <select id="position" name="position" required>
+                <option value="frontend developer">Frontend Developer</option>
+                <option value="full stack developer">Full Stack Deveoper</option>
+                <option value="data scientist">Data Scientist</option>
+                <option value="ml Engineer">ML Engineer</option>
+            </select>
+        </div>
+        <div>
+            <label for="resume">Upload your resume</label><br>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+        </div>
+        <div>
+            <label for="coverletter">Cover Letter</label><br>
+            <textarea name="coverletter" id="coverletter" required></textarea>
+        </div>
+        <div>
+
+
+            <label for="terms">
+            <input type="checkbox" id="terms" name="terms" required>I agree to the terms and conditions </label>
+        </div>
+        <div>
+            <input type="submit" value="Submit Application">
+        </div>
+    </form>
+  
+  
+  </body>
+  
+
+  
+</html>

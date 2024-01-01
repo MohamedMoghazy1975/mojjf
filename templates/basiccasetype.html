@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html dir="rtl" lang="ar">
+     <head>
+{% include 'bootstrap.html' %}
+     </head>
+
+  <body class="container">
+  <div> 
+    <img src="/static/MOJPIC.png" style="height:200px;">
+  </div
+  <div><h1><strong>النوع الرئيسي للدعوى</strong></h1></div>
+    {% for eachbasiccase in basiccase %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+         <th class="text-right"><h4><strong>{{eachbasiccase.BasicCaseTypeName}}</strong></h4></td></th>
+         <th><a class="btn btn-warning" href="/my-link/">حدد الطلبات</a></th>
+         {{eachbasiccase['BasicCaseTypeID']}}
+        
+         <th><a class="btn btn-warning" href="/basiccasej/{{eachbasiccase['BasicCaseTypeID']}}">حدد الطلبات</a></th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr>
+       <td></td>
+       <td ></td>
+         </tr>
+      </tbody>
+    </table>
+    {% endfor %} 
+   </body>
+</html>
