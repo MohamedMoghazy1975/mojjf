@@ -52,3 +52,11 @@ def load_basiccase(id): # /* id is the imput court id */
              basiccase.append(row._asdict())
     return basiccase
 
+def load_basiccasetype_from_db(id): # /* id is the imput court id */
+ with engine.connect() as conn:
+   result = conn.execute(text("SELECT * FROM BasicCaseType WHERE BasicCaseTypeID = :val"), {"val": id}
+    )
+   specifybasiccase = []
+   for row in result.all():
+     specifybasiccase.append(row._asdict())
+   return specifybasiccase

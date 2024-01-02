@@ -1,6 +1,8 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 
-from database import load_basiccase, load_court_from_db, load_courts, load_gdwl
+from database import load_basiccase, load_court_from_db, load_courts, load_gdwl, load_basiccasetype_from_db
+
+
 
 app = Flask(__name__)
 
@@ -43,11 +45,18 @@ def show_basiccases(id):
 @app.route("/basiccasetype/<id>") 
 def specifiy_basiccase(id):
    basiccase = load_basiccase(id)
-   return render_template ("basiccasetype.html", basiccase=basiccase)
+   return render_template ("basiccasetype.html", basiccase=basiccase )
 
-@app.route('/my-link/')
-def my_link():
-   return render_template ("request.html")
+@app.route("/basiccasej2/<id>") 
+def req_basiccases(id):
+   specifybasiccase = load_basiccasetype_from_db(id)
+   return jsonify(specifybasiccase)
+  
+@app.route("/my-link/<id>")
+def my_link(id):
+    specifybasiccase = load_basiccasetype_from_db(id)
+    variable_to_pass = (id)
+    return render_template ("request.html", variable_to_pass=variable_to_pass, specifybasiccase=specifybasiccase)
     
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

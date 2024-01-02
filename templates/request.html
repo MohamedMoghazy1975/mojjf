@@ -9,11 +9,12 @@
     </div
     <div><h1><strong>الطلبات</strong></h1></div>
     
-    <form >
+    <form>
         <div>
-            <label for="email">Email</label><br>
-            <input type="text" id="email" name="Email" required placeholder="nan@example.com">
-
+          <label for="number">النوع الرئيسي للدعوى</label><br>
+          <input type="number" value="{{variable_to_pass}}" maxlength =2>
+          <input type="text" value={{specifybasiccase[0].BasicCaseTypeName}}>
+          <input type="text" maxlength = 100 value={{specifybasiccase[0].BasicCaseTypeName}} >
         </div>
         <div>
             <label for="phone">Phone</label><br>
@@ -32,22 +33,9 @@
                 <option value="ml Engineer">ML Engineer</option>
             </select>
         </div>
+             
         <div>
-            <label for="resume">Upload your resume</label><br>
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
-        </div>
-        <div>
-            <label for="coverletter">Cover Letter</label><br>
-            <textarea name="coverletter" id="coverletter" required></textarea>
-        </div>
-        <div>
-
-
-            <label for="terms">
-            <input type="checkbox" id="terms" name="terms" required>I agree to the terms and conditions </label>
-        </div>
-        <div>
-            <input type="submit" value="Submit Application">
+            <input type="submit">
         </div>
     </form>
   

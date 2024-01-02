@@ -14,11 +14,8 @@
       <thead>
         <tr>
          <th class="text-right"><h4><strong>{{eachbasiccase.BasicCaseTypeName}}</strong></h4></td></th>
-         <th><a class="btn btn-warning" href="/my-link/">حدد الطلبات</a></th>
-         {{eachbasiccase['BasicCaseTypeID']}}
-        
-         <th><a class="btn btn-warning" href="/basiccasej/{{eachbasiccase['BasicCaseTypeID']}}">حدد الطلبات</a></th>
-         </tr>
+         <th><a class="btn btn-warning" href="/my-link/{{eachbasiccase['BasicCaseTypeID']}}">حدد الطلبات</a></th>
+       </tr>
       </thead>
       <tbody>
         <tr>
@@ -28,5 +25,6 @@
       </tbody>
     </table>
     {% endfor %} 
-   </body>
+ 
+  </body>
 </html>
