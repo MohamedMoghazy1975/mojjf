@@ -8,12 +8,12 @@
       <img src="/static/MOJPIC.png" style="height:200px;">
     </div
     <div><h1><strong>الطلبات</strong></h1></div>
-    
     <form>
      
          <div>
           <label for="number">النوع الرئيسي للدعوى</label><br>
-          <b><input type="number" value="{{variable_to_pass}}" maxlength = "2" style = "width :50px" disabled ><b>
+            <b><input type="number" value="{{ session['my_variable'] }}" maxlength = "2" style = "width :50px" disabled ><b>
+           <b><input type="number" value="{{variable_to_pass}}" maxlength = "2" style = "width :50px" disabled ><b>
           <input type="text"  value="{{specifybasiccase[0].BasicCaseTypeName}}" style = "width : 500px" disabled >
         </div>
         <div>

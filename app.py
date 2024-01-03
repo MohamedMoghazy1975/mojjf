@@ -1,12 +1,15 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, session, redirect
 
 from database import load_basiccase, load_court_from_db, load_courts, load_gdwl, load_basiccasetype_from_db
 
 
 
 app = Flask(__name__)
+app.secret_key = "1234567891011121314151617181920"
 
 
+# this route to home.html and load all courts data and show it in the home page
+# all data in tbcourts variable the variable is a jsonify to /api/mydataapi
 @app.route("/") 
 def hello_world():
   tbcourts = load_courts()
@@ -25,6 +28,7 @@ def show_onecourt(id):
 @app.route("/court/<id>")
 def show_onecourtonhtml(id):
   court = load_court_from_db(id)
+  session['my_variable'] = (id)
   return render_template ("court.html", court=court)
 
 @app.route("/gdwl/<id>") 
