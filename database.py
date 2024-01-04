@@ -60,3 +60,16 @@ def load_basiccasetype_from_db(id): # /* id is the imput court id */
    for row in result.all():
      specifybasiccase.append(row._asdict())
    return specifybasiccase
+
+def load_Requests(id): 
+ s = text (
+ "SELECT Requests.* FROM JoinBasicCaseTypeRequests "
+ "JOIN Requests ON JoinBasicCaseTypeRequests.RequestID = " 
+ "Requests.RequestID " 
+ "WHERE JoinBasicCaseTypeRequests.BasicCaseTypeID = :val")
+ with engine.connect() as conn:
+    result = conn.execute(s, {"val": id})
+ Requests = []
+ for row in result.all():
+         Requests.append(row._asdict())
+ return Requests

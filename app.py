@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request, session, redirect
 
-from database import load_basiccase, load_court_from_db, load_courts, load_gdwl, load_basiccasetype_from_db
+from database import load_Requests, load_basiccase, load_court_from_db, load_courts, load_gdwl, load_basiccasetype_from_db
 
 
 
@@ -28,7 +28,7 @@ def show_onecourt(id):
 @app.route("/court/<id>")
 def show_onecourtonhtml(id):
   court = load_court_from_db(id)
-  session['my_variable'] = (id)
+  session['C_ID'] = (id)
   return render_template ("court.html", court=court)
 
 @app.route("/gdwl/<id>") 
@@ -39,6 +39,7 @@ def show_gdwl(id):
 @app.route("/gdwal/<id>") 
 def specifiy_gdwl(id):
    gdwl = load_gdwl(id)
+   session['C_Type'] = (id)
    return render_template ("gdwal.html", gdwl=gdwl)
 
 @app.route("/basiccasej/<id>") 
@@ -49,19 +50,29 @@ def show_basiccases(id):
 @app.route("/basiccasetype/<id>") 
 def specifiy_basiccase(id):
    basiccase = load_basiccase(id)
+   session['C_G'] = (id)
    return render_template ("basiccasetype.html", basiccase=basiccase )
 
 @app.route("/basiccasej2/<id>") 
 def req_basiccases(id):
    specifybasiccase = load_basiccasetype_from_db(id)
    return jsonify(specifybasiccase)
-  
-@app.route("/my-link/<id>")
-def my_link(id):
-    specifybasiccase = load_basiccasetype_from_db(id)
-    variable_to_pass = (id)
-    return render_template ("request.html", variable_to_pass=variable_to_pass, specifybasiccase=specifybasiccase)
-    
+
+@app.route("/allrequests/<id>") 
+def basic_request(id):
+   myrequests = load_Requests(id)
+   return jsonify(myrequests)
+
+@app.route("/request/<id>") 
+def show_requests(id):
+   myrequests1 = load_Requests(id)
+   specifybasiccase = load_basiccasetype_from_db(id)
+   variable_to_pass = (id)
+   return render_template ("request.html", myrequests1=myrequests1,
+                          variable_to_pass=variable_to_pass
+                          ,specifybasiccase=specifybasiccase
+                         )
+
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
  

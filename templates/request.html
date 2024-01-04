@@ -8,41 +8,45 @@
       <img src="/static/MOJPIC.png" style="height:200px;">
     </div
     <div><h1><strong>الطلبات</strong></h1></div>
-    <form>
+    <form id="myForm">
      
          <div>
-          <label for="number">النوع الرئيسي للدعوى</label><br>
-            <b><input type="number" value="{{ session['my_variable'] }}" maxlength = "2" style = "width :50px" disabled ><b>
-           <b><input type="number" value="{{variable_to_pass}}" maxlength = "2" style = "width :50px" disabled ><b>
-          <input type="text"  value="{{specifybasiccase[0].BasicCaseTypeName}}" style = "width : 500px" disabled >
-        </div>
-        <div>
-            <label for="phone">Phone</label><br>
-            <input type="tel" id="phone" name="phone" required placeholder="+910034000402">
-        </div>
-       
-        <div>
-            <label for="Date">Date Of Birth</label><br>
-            <input type="date" name="date" id="date" required placeholder="dd/mm/yyyy">
-        </div>
-        <div>
-            <label for="position">Position Applied for</label><br>
-            <select id="position" name="position" required>
-                <option value="frontend developer">Frontend Developer</option>
-                <option value="full stack developer">Full Stack Deveoper</option>
-                <option value="data scientist">Data Scientist</option>
-                <option value="ml Engineer">ML Engineer</option>
-            </select>
-        </div>
-             
-        <div>
-            <input type="submit">
-        </div>
-    </form>
-  
-  
-  </body>
-  
+                <label for="number">النوع الرئيسي للدعوى</label><br>
+                <div>
+                <b><input type="number" value="{{ session['C_ID'] }}" maxlength = "2" style = "width :50px" disabled ><b>
+                <b><input type="number" value="{{ session['C_Type'] }}" maxlength = "2" style = "width :50px" disabled ><b>
+                <b><input type="number" value="{{ session['C_G'] }}" maxlength = "2" style = "width :50px" disabled ><b>
+                <b><input type="number" value="{{variable_to_pass}}" maxlength = "2" style = "width :50px" disabled ><b>
+                <input type="text"  value="{{specifybasiccase[0].BasicCaseTypeName}}" style = "width : 500px" disabled >
+                </div>
+         <div>
+              {% for eachrequest in myrequests1 %}
+               <div>
+                 <input type="checkbox" name="req" value="{{eachrequest['RequestID']}}">
+                 <input type="text"  value="{{eachrequest['RequestID']}}" style = "width : 50px" disabled > 
+                  <input type="text"  value="{{eachrequest['RequestName']}}" style = "width : 300px" disabled >
+               </div>
+               {%endfor%}
+         </div>
+                  <div>
+                   <input type="submit">
+                  </div>
+         </div>
 
+              <input type="text" name="name" id="nameInput">
+              <input type="email" name="email" id="emailInput">
+              <button type="button" onclick="displayData()">Show Data</button>
+              
+              <div id="dataDisplay"></div>
+            <script>
+                function displayData() {
+                const name = document.getElementById("nameInput").value;
+                const email = document.getElementById("emailInput").value;}
+                document.getElementById("dataDisplay").textContent = data;
+              </sript>
+      
+    </form>
+ 
+  </body>
   
 </html>
