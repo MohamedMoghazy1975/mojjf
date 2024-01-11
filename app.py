@@ -73,6 +73,11 @@ def show_requests(id):
                           ,specifybasiccase=specifybasiccase
                          )
 
+@app.route("/court/<id>/apply")
+def appl_req(id):
+   data=request.args
+   return jsonify(data)  
+
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)
  

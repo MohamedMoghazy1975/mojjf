@@ -8,23 +8,24 @@
       <img src="/static/MOJPIC.png" style="height:200px;">
     </div
     <div><h1><strong>الطلبات</strong></h1></div>
-    <form id="myForm">
+    <form id="myForm" action="/court/{{ session['C_ID'] }}/apply">
      
          <div>
                 <label for="number">النوع الرئيسي للدعوى</label><br>
                 <div>
-                <b><input type="number" value="{{ session['C_ID'] }}" maxlength = "2" style = "width :50px" disabled ><b>
-                <b><input type="number" value="{{ session['C_Type'] }}" maxlength = "2" style = "width :50px" disabled ><b>
-                <b><input type="number" value="{{ session['C_G'] }}" maxlength = "2" style = "width :50px" disabled ><b>
-                <b><input type="number" value="{{variable_to_pass}}" maxlength = "2" style = "width :50px" disabled ><b>
-                <input type="text"  value="{{specifybasiccase[0].BasicCaseTypeName}}" style = "width : 500px" disabled >
+                <b><input type="number" name = "CourtDegree" value="{{ session['C_ID'] }}" maxlength = "2" style = "width :50px"  ><b>
+                <b><input type="number" name= "CourtType" value="{{ session['C_Type'] }}" maxlength = "2" style = "width :50px"  ><b>
+                <b><input type="number" name = "CourtGadwl" value="{{ session['C_G'] }}" maxlength = "2" style = "width :50px"  ><b>
+                <b><input type="number" name= "CaseBasicType" value="{{variable_to_pass}}" maxlength = "2" style = "width :50px"  ><b>
+                <input type="text" name="CaseBasicName" value="{{specifybasiccase[0].BasicCaseTypeName}}" style = "width : 500px"  >
                 </div>
          <div>
               {% for eachrequest in myrequests1 %}
                <div>
+                  <input type="radio" name="radioOptions" value="{{eachrequest['RequestID']}}">
                  <input type="checkbox" name="req" value="{{eachrequest['RequestID']}}">
-                 <input type="text"  value="{{eachrequest['RequestID']}}" style = "width : 50px" disabled > 
-                  <input type="text"  value="{{eachrequest['RequestName']}}" style = "width : 300px" disabled >
+                 <input type="text" name="reqid" value="{{eachrequest['RequestID']}}" style = "width : 50px"  > 
+                  <input type="text" name="reqname" value="{{eachrequest['RequestName']}}" style = "width : 300px"  >
                </div>
                {%endfor%}
          </div>
@@ -33,17 +34,7 @@
                   </div>
          </div>
 
-              <input type="text" name="name" id="nameInput">
-              <input type="email" name="email" id="emailInput">
-              <button type="button" onclick="displayData()">Show Data</button>
-              
-              <div id="dataDisplay"></div>
-            <script>
-                function displayData() {
-                const name = document.getElementById("nameInput").value;
-                const email = document.getElementById("emailInput").value;}
-                document.getElementById("dataDisplay").textContent = data;
-              </sript>
+            
       
     </form>
  
