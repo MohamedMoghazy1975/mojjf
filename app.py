@@ -76,7 +76,9 @@ def show_requests(id):
 @app.route("/court/<id>/apply")
 def appl_req(id):
    data=request.args
-   return jsonify(data)  
+  # return jsonify(data)  
+   return render_template ("requestresult.html", data=data )
+
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

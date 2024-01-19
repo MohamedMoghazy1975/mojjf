@@ -23,9 +23,8 @@
               {% for eachrequest in myrequests1 %}
                <div>
                   <input type="radio" name="radioOptions" value="{{eachrequest['RequestID']}}">
-                 <input type="checkbox" name="req" value="{{eachrequest['RequestID']}}">
-                 <input type="text" name="reqid" value="{{eachrequest['RequestID']}}" style = "width : 50px"  > 
-                  <input type="text" name="reqname" value="{{eachrequest['RequestName']}}" style = "width : 300px"  >
+                  <input type="text"  value="{{eachrequest['RequestID']}}" style = "width : 50px"  > 
+                  <input type="text"  value="{{eachrequest['RequestName']}}" style = "width : 300px"  >
                </div>
                {%endfor%}
          </div>
